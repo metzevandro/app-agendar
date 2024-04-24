@@ -27,16 +27,16 @@ export const {
   },
   callbacks: {
     async signIn({ user, account }) {
-      if (!account || account.provider !== "credentials" || !user || !user.id) return true;
-      
+      if (account?.provider !== "credentials") return true;
+
       const existingUser = await getUserById(user.id);
-      
-      if (!existingUser || !existingUser.emailVerified) {
+
+      if (!existingUser?.emailVerified) {
         return false;
       }
-      
+
       return true;
-    },       
+    },
 
     async session({ session, token }) {
       if (token.sub && session.user) {
@@ -56,17 +56,17 @@ export const {
     },
     async jwt({ token }) {
       if (!token.sub) return token;
-    
+
       const existingUser = await getUserById(token.sub);
-    
+
       if (!existingUser) return token;
-    
+
       const existingAccount = await getAccountByUserId(existingUser.id);
-    
-      token.isOAuth = existingAccount ? true : false;
+
+      token.isOAuth = !!existingAccount;
       token.name = existingUser.name;
-      token.role = existingUser.role || 'default_role'; // Defina um valor padrão para a role
-    
+      token.role = existingUser.role;
+
       return token;
     },
   },

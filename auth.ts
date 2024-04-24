@@ -5,7 +5,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { db } from "@/lib/db";
 import authConfig from "@/auth.config";
 import { getUserById } from "@/data/user";
-import { getAccoungByUserId } from "./data/account";
+import { getAccountByUserId } from "./data/account";
 
 export const {
   handlers: { GET, POST },
@@ -27,16 +27,16 @@ export const {
   },
   callbacks: {
     async signIn({ user, account }) {
-      if (account?.provider !== "credentials") return true;
-
+      if (!account || account.provider !== "credentials" || !user) return true;
+    
       const existingUser = await getUserById(user.id);
-
-      if (!existingUser?.emailVerified) {
+    
+      if (!existingUser || !existingUser.emailVerified) {
         return false;
       }
-
+    
       return true;
-    },
+    },     
 
     async session({ session, token }) {
       if (token.sub && session.user) {
@@ -56,17 +56,17 @@ export const {
     },
     async jwt({ token }) {
       if (!token.sub) return token;
-
+    
       const existingUser = await getUserById(token.sub);
-
+    
       if (!existingUser) return token;
-
-      const existingAccount = await getAccoungByUserId(existingUser.id);
-
-      token.isOAuth = !!existingAccount;
+    
+      const existingAccount = await getAccountByUserId(existingUser.id);
+    
+      token.isOAuth = existingAccount ? true : false;
       token.name = existingUser.name;
-      token.role = existingUser.role;
-
+      token.role = existingUser.role || 'default_role'; // Defina um valor padrão para a role
+    
       return token;
     },
   },

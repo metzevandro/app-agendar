@@ -21,7 +21,7 @@ const HomePage = () => {
         withBackButton
         onClickBackButton={backButton}
       >
-        <Input value={user?.username ?? ''} />
+        <Input value={user?.name ?? ''} />
         
       </Page>
     </LayoutPage>

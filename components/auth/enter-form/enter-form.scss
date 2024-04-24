@@ -1,0 +1,139 @@
+.steps {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+
+  .step-completed {
+    width: 33.3%;
+    border-radius: 4px;
+    height: 2px;
+    background-color: var(--b-color-base);
+  }
+
+  .step-to-complete {
+    width: 33.3%;
+    border-radius: 4px;
+    height: 2px;
+    background-color: var(--s-color-fill-default-light);
+  }
+}
+
+small {
+  font: var(--s-typography-caption-regular);
+  color: var(--s-color-content-light);
+}
+
+.available-hours {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-spacing-xx-small);
+
+  p {
+    font: var(--s-typography-paragraph-strong);
+    color: var(--s-color-content-default);
+  }
+
+  .hour-input-select {
+    gap: var(--s-spacing-xx-small);
+    display: flex;
+
+    * {
+      width: 100%;
+    }
+  }
+}
+
+.available-days {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-spacing-xx-small);
+  width: 100%;
+
+  p {
+    font: var(--s-typography-paragraph-strong);
+    color: var(--s-color-content-default);
+  }
+
+  .day-input-checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .checking {
+      width: 14.2857142857%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .check-box-root {
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.enter-form-footer {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.enter-form-progress {
+  display: flex;
+}
+
+.input-horario {
+  display: flex;
+  align-items: center;
+  gap: var(--s-spacing-xx-small);
+  justify-content: space-between;
+  p {
+    text-align: left;
+  }
+
+  .label {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: var(--s-spacing-xx-small);
+
+    .input-time {
+      z-index: initial;
+    }
+
+    .input-root {
+      width: 120px;
+    }
+  }
+}
+
+.modal3 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-spacing-small);
+  .add-photo {
+    .delete-button-container {
+      display: none;
+    }
+    .image-previews .image-uploader-item img {
+      border-radius: 50% !important;
+    }
+    .image-uploader-dropzone {
+      border-radius: 50% !important;
+    }
+  }
+
+  small {
+    font: var(--s-typography-caption-regular);
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .input-horario {
+    align-items: start;
+    flex-direction: column;
+  }
+}

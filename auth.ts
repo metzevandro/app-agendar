@@ -27,16 +27,16 @@ export const {
   },
   callbacks: {
     async signIn({ user, account }) {
-      if (!account || account.provider !== "credentials" || !user) return true;
-    
+      if (!account || account.provider !== "credentials" || !user || !user.id) return true;
+      
       const existingUser = await getUserById(user.id);
-    
+      
       if (!existingUser || !existingUser.emailVerified) {
         return false;
       }
-    
+      
       return true;
-    },     
+    },       
 
     async session({ session, token }) {
       if (token.sub && session.user) {

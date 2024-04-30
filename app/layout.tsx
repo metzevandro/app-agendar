@@ -4,6 +4,7 @@ import "./globals.css";
 import "design-system-zeroz/src/app/styles.scss";
 import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react";
+import React from 'react';
 
 const inter = Inter({ subsets: ["latin"] });
 

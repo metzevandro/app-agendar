@@ -2,6 +2,7 @@
 import { EmptyState } from "design-system-zeroz";
 import "./auth-error-page.css";
 import { useRouter } from "next/navigation";
+import React from 'react';
 
 const AuthErrorPage = () => {
   const router = useRouter();

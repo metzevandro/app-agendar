@@ -14,6 +14,7 @@ import "./register-form.css";
 import { RegisterSchema } from "@/schemas/index";
 import { useState, useTransition } from "react";
 import { register } from "@/actions/register";
+import React from 'react';
 
 export const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");

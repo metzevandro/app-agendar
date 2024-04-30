@@ -1,6 +1,7 @@
 "use client";
 import "./new-verification-form.css";
 import { newVerification } from "@/actions/new-verification";
+import React from 'react';
 
 import {
   Button,

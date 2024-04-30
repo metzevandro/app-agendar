@@ -3,6 +3,7 @@ import { Input, Page } from "design-system-zeroz";
 import LayoutPage from "@/app/(protected)/_components/layout";
 import { useCurrentUser } from "@/hooks/user-current-user";
 import { useRouter } from "next/navigation";
+import React from 'react';
 
 const HomePage = () => {
   const user = useCurrentUser();

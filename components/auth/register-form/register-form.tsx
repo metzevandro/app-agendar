@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import GoogleButton from "@/components/auth/google-button/googleButton";
-import "./register-form.css";
+import "./register-form.scss";
 import { RegisterSchema } from "@/schemas/index";
 import { useState, useTransition } from "react";
 import { register } from "@/actions/register";

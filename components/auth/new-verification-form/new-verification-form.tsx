@@ -1,5 +1,5 @@
 "use client";
-import "./new-verification-form.css";
+import "./new-verification-form.scss";
 import { newVerification } from "@/actions/new-verification";
 import React from 'react';
 

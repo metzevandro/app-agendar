@@ -1,5 +1,5 @@
 "use client";
-import "./reset-form.css";
+import "./reset-form.scss";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

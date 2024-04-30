@@ -14,7 +14,7 @@ import {
   Notification,
 } from "design-system-zeroz";
 
-import "./login-form.css";
+import "./login-form.scss";
 import GoogleButton from "@/components/auth/google-button/googleButton";
 import { LoginSchema } from "@/schemas";
 import { login } from "@/actions/login";
